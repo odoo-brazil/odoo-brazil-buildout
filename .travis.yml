@@ -1,0 +1,44 @@
+language: python
+python:
+- '2.7'
+cache: pip
+addons:
+  apt:
+    packages:
+    - expect-dev
+    - python-lxml
+    - libxml2-dev
+    - libxmlsec1-dev
+    - libxslt-dev
+    - gcc
+    - python2.7-dev
+    - libevent-dev
+    - libsasl2-dev
+    - libldap2-dev
+    - libpq-dev
+    - libpng12-dev
+    - libjpeg-dev
+env:
+  matrix:
+  - VERSION="10.0" ODOO_REPO="odoo/odoo"
+  - VERSION="10.0" ODOO_REPO="OCA/OCB"
+  global:
+    secure: SBmLIy159ZbwbxepbCwSxA3PV00eOqkqwuj/2ZSaqZ2gHIzyI9KGN56s1rRf/qkOfN0SlNgVmC+UEP6IA2KnfWmeO8i11EwwD0wGSv4WwRl80kv4LNtt2W0XphBB356ctjEsU1BPRbSlP8np8OekA3o0gFwHHophYNpkJHCx7wMznpN2E5Uc9YY2cDIhd/O1RW5ZnZ+yvtz0BiMMXUC+zxUe+8lt++2CEv+bTsZcOHwHAXsTi8qt0fEEPq1agyGq28M23CQykCiu5JNWn2/8ILszj6QhW4LLnH7lrkaGGmBb0XBWCI8Mnp6cIYd906zugTE8sLkti3DgevHxz9EOXgLcILyXSHThmkVt5sbzMciDm8iE6XWrPvfAp+W5Ng/B5iZpjIpAcJaXqwmTd4c3/dfOdilkNS83fEijh3CR9tGOe+HTm5CtVhW/Cjb/pv2YdPR9zEEljwIUM/KVmieaAVf8RANaQrMW95XgQmKuEGqpPl4hErhGa/f/wt8xg0SxIBHr5HdiQif31odOZ2p9sV210M94ptyBANkW2eS/iuRFuwa4101k4tx0j2arHTDIWhDTikxIqY1rhOz487S7vFUYhxicDrsZ1SSmpcFRNPGAtCbEOMbs07l8LnSRqa4pZUdfTmflJ0sxzAd66wU271B/1/EPx+MZglU8SQ5aRJI=
+
+virtualenv:
+  system_site_packages: true
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_03049d5a4b84_key -iv $encrypted_03049d5a4b84_iv
+    -in github_deploy_key.enc -out github_deploy_key -d
+
+install:
+  - sudo locale-gen en_US en_US.UTF-8 pt_BR.UTF-8
+  - sudo dpkg-reconfigure locales
+  - virtualenv .
+  - bin/pip install -U pip zc.buildout
+  - printf "[buildout]\nextends=https://raw.githubusercontent.com/odoo-brazil/odoo-brazil-buildout/10.0/default.cfg"
+    >> buildout.cfg
+
+script:
+- bin/buildout
