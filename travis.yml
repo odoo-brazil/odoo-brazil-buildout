@@ -29,6 +29,9 @@ env:
 virtualenv:
   system_site_packages: true
 
+before_install:
+  - openssl aes-256-cbc -K $encrypted_03049d5a4b84_key -iv $encrypted_03049d5a4b84_iv -in github_deploy_key.enc -out github_deploy_key -d
+  
 install:
   - sudo locale-gen en_US en_US.UTF-8 pt_BR.UTF-8
   - sudo dpkg-reconfigure locales
