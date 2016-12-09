@@ -18,13 +18,13 @@ com permissão de acesso às bibliotecas do sistema:
 	bin/pip install -U pip zc.buildout 
 
 
-4º Criar um arquivo chamado 'commom.cfg' que irá extender buildout do repositório Odoo-Brazil
+4º Criar um arquivo chamado 'common.cfg' que irá extender buildout do repositório Odoo-Brazil
 
-	printf "[buildout]\n\nextends =  https://raw.githubusercontent.com/odoo-brazil/odoo-brazil-buildout/10.0/default.cfg" >> commom.cfg
+	printf "[buildout]\n\nextends =  https://raw.githubusercontent.com/odoo-brazil/odoo-brazil-buildout/10.0/default.cfg" >> common.cfg
 
-4º Criar um arquivo chamado 'buildout.cfg' que irá extender o arquivo do commom.cfg
+4º Criar um arquivo chamado 'buildout.cfg' que irá extender o arquivo do common.cfg
 
-	printf "[buildout]\n\nextends = commom.cfg" >> buildout.cfg
+	printf "[buildout]\n\nextends = common.cfg" >> buildout.cfg
 
 
 5º Rodar buildout apartir da virtualenv
