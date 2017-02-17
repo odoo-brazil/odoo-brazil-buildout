@@ -37,8 +37,6 @@ install:
   - sudo dpkg-reconfigure locales
   - virtualenv .
   - bin/pip install -U pip zc.buildout
-  - printf "[buildout]\nextends=https://raw.githubusercontent.com/odoo-brazil/odoo-brazil-buildout/10.0/default.cfg"
-    >> buildout.cfg
 
 script:
 - bin/buildout
