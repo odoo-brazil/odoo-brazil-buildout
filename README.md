@@ -1,5 +1,7 @@
 # odoo-brazil-buildout
 
+[![Build Status](https://travis-ci.org/odoo-brazil/odoo-brazil-buildout.svg?branch=feature%2Fv10-refactory)](https://travis-ci.org/odoo-brazil/odoo-brazil-buildout)
+
 Passos para instalação do Odoo V10
 
 1º Criar uma pasta vazia com permissão de escrita.
