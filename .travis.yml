@@ -35,10 +35,9 @@ before_install:
 install:
   - sudo locale-gen en_US en_US.UTF-8 pt_BR.UTF-8
   - sudo dpkg-reconfigure locales
-  - virtualenv . --system-site-packages
-  - bin/pip install -U pip zc.buildout
-  - printf "[buildout]\nextends = default.cfg\n"
-    >> buildout.cfg
+  - printf "[buildout]\nextends = default.cfg\n" >> buildout.cfg
+  - python bootstrap.py
 
 script:
-- bin/buildout
+  - bin/buildout annotate
+  - bin/buildout
