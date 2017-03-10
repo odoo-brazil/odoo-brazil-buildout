@@ -18,21 +18,30 @@ com permissão de acesso às bibliotecas do sistema:
 	bin/pip install -U pip zc.buildout 
 
 
-4º Criar um arquivo chamado 'common.cfg' que irá extender buildout do repositório Odoo-Brazil
-
-	printf "[buildout]\n\nextends =  https://raw.githubusercontent.com/odoo-brazil/odoo-brazil-buildout/10.0/default.cfg" >> common.cfg
-
 4º Criar um arquivo chamado 'buildout.cfg' que irá extender o arquivo do common.cfg
 
-	printf "[buildout]\n\nextends = common.cfg" >> buildout.cfg
+    [buildout]
+    extends = default.cfg
+    
+    [odoo]
+    options.db_password = <password on odoo runbot database>
+    options.db_user = <odoo user>
+    options.admin_passwd = <password on odoo instance>
+    options.db_host = <host>
+    options.db_password = <db password>
 
+Setando outros parametros:
 
-5º Rodar buildout apartir da virtualenv
+    options.nome_parametro_no_arquivo_cfg = 4
+
+5º Execute o buildout, para fazer o download do Odoo e suas dependencias
 
 	bin/buildout 
 
-6º Rodar Odoo
+6º Iniciando o Odoo
 	
 	bin/start_odoo
  
  7º Enjoy!
+ 
+ Mais informações veja a documentação oficial: https://github.com/anybox/anybox.recipe.odoo/
