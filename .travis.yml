@@ -35,9 +35,9 @@ before_install:
 install:
   - sudo locale-gen en_US en_US.UTF-8 pt_BR.UTF-8
   - sudo dpkg-reconfigure locales
-  - virtualenv .
+  - virtualenv . --system-site-packages
   - bin/pip install -U pip zc.buildout
-  - printf "[buildout]\nextends=https://raw.githubusercontent.com/odoo-brazil/odoo-brazil-buildout/10.0/default.cfg"
+  - printf "[buildout]\nextends = default.cfg\n"
     >> buildout.cfg
 
 script:
