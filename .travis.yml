@@ -8,7 +8,6 @@ addons:
     - expect-dev
     - python-lxml
     - libxml2-dev
-    - libxmlsec1-dev
     - libxslt-dev
     - gcc
     - python2.7-dev
