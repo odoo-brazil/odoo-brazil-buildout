@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -e -x
-virtualenv .
+virtualenv -p python2 .
 bin/pip install -U zc.buildout pip
-
-bin/buildout
 printf "[buildout]\nextends = default.cfg\n" >> buildout.cfg
+bin/buildout
 
