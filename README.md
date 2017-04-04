@@ -10,8 +10,7 @@ Passos para instalação do Odoo V10
 com permissão de acesso às bibliotecas do sistema:
 	
 	cd projeto10
-	virtualenv . --system-site-packages
-
+	virtualenv -p python2 .
 
 3º Atualizar e/ou Instalar o buildout dentro da virtualenv
 
