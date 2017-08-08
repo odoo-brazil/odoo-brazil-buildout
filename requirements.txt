@@ -5,11 +5,11 @@ beautifulsoup4==4.6.0
 certifi==2017.7.27.1
 cffi==1.10.0
 chardet==3.0.4
-cryptography==2.0.2
+cryptography==1.9
 decorator==4.1.2
 defusedxml==0.5.0
 dnspython==1.15.0
-docutils==0.13.1
+docutils==0.14
 ebaysdk==2.1.4
 eight==0.4.2
 email-validator==1.0.2
@@ -20,7 +20,7 @@ future==0.16.0
 gevent==1.2.2
 greenlet==0.4.12
 html2text==2016.9.19
-idna==2.5
+idna==2.6
 ipaddress==1.0.18
 ipdb==0.10.3
 ipython==5.4.1
@@ -62,7 +62,7 @@ pyusb==1.0.0
 PyYAML==3.12
 qrcode==5.3
 reportlab==3.4.0
-requests==2.18.2
+requests==2.18.3
 scandir==1.5
 sh==1.12.14
 signxml==2.4.0
