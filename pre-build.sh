@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e -x
-virtualenv2 -p python2 .
+virtualenv -p python2 .
 bin/pip install -r requirements.txt
 ./pip-update-requirements.sh
 bin/pip install -U zc.buildout pip
