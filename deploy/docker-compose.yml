@@ -1,0 +1,20 @@
+version: 2
+services:
+  web:
+    image: odoo:10.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+  db:
+    image: postgres:9.4
+    environment:
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+  auth-lb:
+    image: rancher/lb-service-haproxy:v0.6.2
+    ports:
+    - 9000:9000/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
