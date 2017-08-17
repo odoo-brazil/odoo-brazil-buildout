@@ -33,4 +33,4 @@ deploy:
   stage: deploy
   image: cdrx/rancher-gitlab-deploy
   script:
-    - upgrade
+    - upgrade --environment veneza
