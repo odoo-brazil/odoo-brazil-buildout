@@ -4,4 +4,4 @@ USER odoo
 ENV ODOO_HOME /opt/odoo
 WORKDIR $ODOO_HOME
 COPY ["default.cfg", "develop.cfg", "$ODOO_HOME/"]
-RUN ./sandbox/bin/buildout -Nc develop.cfg
+RUN bin/buildout -Nc develop.cfg
