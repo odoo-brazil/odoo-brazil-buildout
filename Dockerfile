@@ -1,4 +1,4 @@
-FROM odoo-kmee:eggs
+FROM gitlab.kmee.com.br:5043/odoo/base-buildout:10-0
 #kmee/docker.odoo:master
 MAINTAINER KMEE infra@kmee.com.br
 
@@ -12,4 +12,3 @@ COPY develop.cfg $ODOO_HOME/
 COPY pre-build.sh $ODOO_HOME/
 
 RUN ./pre-build.sh -c develop.cfg
-
