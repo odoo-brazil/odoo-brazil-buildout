@@ -1,5 +1,5 @@
 FROM gitlab.kmee.com.br:5043/odoo/base-buildout:10-0
-#kmee/docker.odoo:master
+#kmee/docker.odoo:master ###
 MAINTAINER KMEE infra@kmee.com.br
 
 USER odoo
