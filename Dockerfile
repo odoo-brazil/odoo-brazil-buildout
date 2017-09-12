@@ -5,4 +5,5 @@ ENV ODOO_HOME /opt/odoo
 WORKDIR $ODOO_HOME
 COPY ["default.cfg", "develop.cfg", "$ODOO_HOME/"]
 RUN bin/buildout -Nc develop.cfg
+EXPOSE 8069
 CMD ["bin/start-odoo"]
