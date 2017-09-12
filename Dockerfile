@@ -6,5 +6,5 @@ WORKDIR $ODOO_HOME
 COPY ["default.cfg", "develop.cfg", "entrypoint.sh", "$ODOO_HOME/"]
 RUN bin/buildout -Nc develop.cfg
 #EXPOSE 8069
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 CMD ["odoo"]
