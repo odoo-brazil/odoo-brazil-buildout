@@ -1,20 +1,26 @@
-version: 2
+version: '2'
+volumes:
+  PostgresV:
+    external: true
+    driver: nfs
 services:
   web:
-    image: odoo:10.0
-    depends_on:
-      - db
+    image: gitlab.kmee.com.br:5043/odoo/produto:develop
+    stdin_open: true
+    volumes:
+    - PostgresV:/var/run/postgresql
+    tty: true
+    links:
+    - db:postgres
     ports:
-      - "8069:8069"
+    - 8069:8069/tcp
+    labels:
+      io.rancher.container.pull_image: always
   db:
     image: postgres:9.6
     environment:
-      - POSTGRES_PASSWORD=odoo
-      - POSTGRES_USER=odoo
-  auth-lb:
-    image: rancher/lb-service-haproxy:v0.6.2
-    ports:
-    - 9000:9000/tcp
-    labels:
-      io.rancher.container.agent.role: environmentAdmin
-      io.rancher.container.create_agent: 'true'
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_USER: odoo
+    volumes:
+    - PostgresV:/var/run/postgresql
+

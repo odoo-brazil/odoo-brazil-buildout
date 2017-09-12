@@ -3,32 +3,7 @@ services:
   web:
     scale: 1
     start_on_create: true
-    health_check:
-      response_timeout: 2000
-      healthy_threshold: 2
-      port: 8069
-      unhealthy_threshold: 3
-      initializing_timeout: 60000
-      interval: 2000
-      strategy: recreate
-      request_line: GET "/web" "HTTP/1.0"
-      reinitializing_timeout: 6000
-  auth-lb:
-    scale: 1
-    start_on_create: true
-    lb_config:
-      port_rules:
-      - priority: 1
-        protocol: http
-        service: web
-        source_port: 9000
-        target_port: 8069
-    health_check:
-      response_timeout: 2000
-      healthy_threshold: 2
-      port: 42
-      unhealthy_threshold: 3
-      interval: 2000
   db:
     scale: 1
     start_on_create: true
+
