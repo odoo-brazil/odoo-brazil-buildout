@@ -4,7 +4,7 @@ USER odoo
 ENV ODOO_HOME /opt/odoo
 WORKDIR $ODOO_HOME
 COPY ["default.cfg", "develop.cfg", "entrypoint.sh", "$ODOO_HOME/"]
-RUN chown odoo ./entrypoint.sh
+RUN sudo chown odoo ./entrypoint.sh
 RUN bin/buildout -Nc develop.cfg
 #EXPOSE 8069
 RUN ls -lah
