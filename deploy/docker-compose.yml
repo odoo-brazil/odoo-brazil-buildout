@@ -3,12 +3,16 @@ volumes:
   PostgresV:
     external: true
     driver: nfs
+  OdooV:
+    external: true
+    driver: nfs
 services:
   web:
     image: gitlab.kmee.com.br:5043/odoo/produto:develop
     stdin_open: true
     volumes:
     - PostgresV:/var/run/postgresql
+    - OdooV:/opt/odoo/.local/share/Odoo
     tty: true
     links:
     - db:postgres
