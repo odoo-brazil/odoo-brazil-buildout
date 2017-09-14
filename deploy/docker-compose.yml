@@ -7,7 +7,7 @@ volumes:
     external: true
     driver: nfs
 services:
-  web:
+  web:  
     image: gitlab.kmee.com.br:5043/odoo/produto:develop
     stdin_open: true
     volumes:
@@ -16,8 +16,6 @@ services:
     tty: true
     links:
     - db:postgres
-    ports:
-    - 8069:8069/tcp
     labels:
       io.rancher.container.pull_image: always
   db:
@@ -27,4 +25,10 @@ services:
       POSTGRES_USER: odoo
     volumes:
     - PostgresV:/var/run/postgresql
-
+  auth-lb:
+    image: rancher/lb-service-haproxy:v0.7.6
+    ports:
+    - :9000/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
