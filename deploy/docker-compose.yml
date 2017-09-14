@@ -28,7 +28,7 @@ services:
   auth-lb:
     image: rancher/lb-service-haproxy:v0.7.6
     ports:
-    - :9000/tcp
+    - 6574:9000/tcp
     labels:
       io.rancher.container.agent.role: environmentAdmin
       io.rancher.container.create_agent: 'true'
