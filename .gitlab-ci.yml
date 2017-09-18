@@ -36,10 +36,12 @@ deploy-master:
   script:
     - upgrade --environment dev --stack producao --service web
   only:
+    - printenv
     - master
 
 deploy:
   stage: deploy
   image: cdrx/rancher-gitlab-deploy
   script:
+    - printenv
     - upgrade --environment dev --stack produto --service web
