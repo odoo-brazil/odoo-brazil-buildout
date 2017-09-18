@@ -34,14 +34,12 @@ deploy-master:
   stage: deploy
   image: cdrx/rancher-gitlab-deploy
   script:
-    - upgrade --environment veneza --stack producao --service web
+    - upgrade --environment dev --stack producao --service web
   only:
     - master
-  when: manual
 
 deploy:
   stage: deploy
   image: cdrx/rancher-gitlab-deploy
   script:
-    - upgrade --environment veneza --stack $CI_COMMIT_REF_SLUG --service web
-  when: manual
+    - upgrade --environment dev --stack produto --service web
