@@ -5,7 +5,7 @@ ENV ODOO_HOME /opt/odoo
 WORKDIR $ODOO_HOME
 COPY ["default.cfg", "buildout.cfg", "entrypoint.sh", "$ODOO_HOME/"]
 USER root
-RUN chown odoo:odoo $ODOO_HOME/entrypoint.sh
+RUN chown -R odoo:odoo $ODOO_HOME/
 #RUN whoami
 #RUN ls -lah ./entrypoint.sh
 USER odoo
