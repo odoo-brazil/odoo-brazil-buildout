@@ -4,9 +4,9 @@ USER odoo
 ENV ODOO_HOME /opt/odoo
 WORKDIR $ODOO_HOME
 COPY ["default.cfg", "buildout.cfg", "entrypoint.sh", "$ODOO_HOME/"]
+RUN bin/buildout -N
 USER root
 RUN chown -R odoo:odoo $ODOO_HOME/
 USER odoo
-RUN bin/buildout -N
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["odoo"]
