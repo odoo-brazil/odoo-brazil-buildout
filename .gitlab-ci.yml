@@ -39,9 +39,16 @@ deploy-master:
     - printenv
     - master
 
-deploy:
+##deploy:
+##  stage: deploy
+##  image: cdrx/rancher-gitlab-deploy
+##  script:
+##    - printenv
+##    - upgrade --environment dev --stack produto --service web
+    
+deploy-demo:
   stage: deploy
   image: cdrx/rancher-gitlab-deploy
   script:
     - printenv
-    - upgrade --environment dev --stack produto --service web
+    - upgrade --environment dev --stack demo --service web
