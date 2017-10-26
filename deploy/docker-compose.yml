@@ -1,41 +1,41 @@
 version: '2'
 volumes:
-  postgres_volume_config:
-    driver: rancher-nfs
+  demo_odoo_files:
     external: true
-  postgres_volume_log:
     driver: rancher-nfs
+  demo_postgres_volume_config:
     external: true
-  postgres_volume_data:
     driver: rancher-nfs
+  demo_postgres_volume_log:
     external: true
-  odoo_files:
     driver: rancher-nfs
+  demo_postgres_volume_data:
     external: true
+    driver: rancher-nfs
 services:
-  web:  
+  web:
     image: gitlab.kmee.com.br:5043/odoo/produto:develop
     stdin_open: true
     volumes:
-    - odoo_files:/opt/odoo/.local/share/Odoo
+    - demo_odoo_files:/opt/odoo/.local/share/Odoo
     tty: true
     links:
-    - db:postgres
+    - postgres:db
     labels:
+      traefik.port: '8069'
+      traefik.domain: dev.kmee.online
+      traefik.enable: stack
       io.rancher.container.pull_image: always
-  db:
+  postgres:
     image: postgres:9.6
     environment:
       POSTGRES_PASSWORD: odoo
       POSTGRES_USER: odoo
+    stdin_open: true
     volumes:
-    - postgres_volume_config:/etc/postgresql-common/
-    - postgres_volume_log:/var/log/postgresql/
-    - postgres_volume_data:/var/lib/postgresql/data/
-  auth-lb:
-    image: rancher/lb-service-haproxy:v0.7.6
-    ports:
-    - 9001:9001/tcp
+    - demo_postgres_volume_config:/etc/postgresql-common/
+    - demo_postgres_volume_log:/var/log/postgresql/
+    - demo_postgres_volume_data:/var/lib/postgresql/data/
+    tty: true
     labels:
-      io.rancher.container.agent.role: environmentAdmin
-      io.rancher.container.create_agent: 'true'
+      io.rancher.container.pull_image: always
