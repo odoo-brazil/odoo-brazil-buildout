@@ -35,6 +35,7 @@ deploy-master:
   image: cdrx/rancher-gitlab-deploy
   script:
     - upgrade --environment dev --stack producao --service web
+  when: manual
   only:
     - printenv
     - master
@@ -52,3 +53,6 @@ deploy-demo:
   script:
     - printenv
     - upgrade --environment dev --stack demo --service web
+  when: manual
+  only:
+    - develop
