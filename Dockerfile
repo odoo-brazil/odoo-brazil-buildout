@@ -10,3 +10,6 @@ RUN chown -R odoo:odoo $ODOO_HOME/
 USER odoo
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["odoo"]
+USER root
+RUN chown -R odoo:odoo $ODOO_HOME/
+USER odoo
