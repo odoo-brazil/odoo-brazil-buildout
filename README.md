@@ -1,16 +1,18 @@
 # odoo-brazil-buildout
 
-Passos para instalação do Odoo V10
+Passos para instalação do Odoo V12
 
 1º Criar uma pasta vazia com permissão de escrita.
 
-	mkdir projeto10
+	mkdir projeto12
 
 2º Configurar um Virtual Env na pasta criada, 
 com permissão de acesso às bibliotecas do sistema:
 	
-	cd projeto10
-	virtualenv -p python2 .
+	cd projeto12
+
+
+	virtualenv -p python3 .
 
 3º Atualizar e/ou Instalar o buildout dentro da virtualenv
 
