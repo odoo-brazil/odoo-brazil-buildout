@@ -11,6 +11,7 @@ com permissão de acesso às bibliotecas do sistema:
 	
 	cd projeto12
 
+	sudo apt-get install python3 python-dev python3-dev
 
 	virtualenv -p python3 .
 
