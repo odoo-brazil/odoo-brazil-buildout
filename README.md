@@ -13,6 +13,9 @@ com permissão de acesso às bibliotecas do sistema:
 
 	sudo apt-get install python3 python-dev python3-dev git mercurial virtualenv
 
+	sudo apt-get install libsasl2-dev libldap2-dev libssl-dev
+
+
 	virtualenv -p python3 .
 
 3º Atualizar e/ou Instalar o buildout dentro da virtualenv
