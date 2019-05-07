@@ -11,7 +11,7 @@ com permissão de acesso às bibliotecas do sistema:
 	
 	cd projeto12
 
-	sudo apt-get install python3 python-dev python3-dev
+	sudo apt-get install python3 python-dev python3-dev git mercurial virtualenv
 
 	virtualenv -p python3 .
 
